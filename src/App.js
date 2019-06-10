@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
+import MyHeader from './components/MyHeader'
+import Footer from './components/Footer'
+import Navigation from './components/Navigation'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+  constructor(props){
+      super(props);
+
+      this.state = {
+          counter:0,
+          date: setInterval(()=>new Date().toString(),1000),
+      };
+
+      this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = ()=>{
+       this.setState({counter:this.state.counter+1});
+  };
+
+
+ render(){
+      let {counter} = this.state;
+      console.log(this.state.date);
+      return (
+          <div>
+              <MyHeader greetName={'Evgen'} handleClick={this.handleClick} />
+              <h2>{ counter }</h2>
+              <span className={'time'}>
+                  {setInterval(()=>new Date().toString(),1000)}
+              </span>
+              <Navigation />
+              <main>
+                  <p>some content</p>
+              </main>
+              <Footer />
+          </div>
+      );
+  }
 }
 
+//
+// function render(){
+//     document.querySelector('.time').innerText = new Date().toString()
+// }
+//  setInterval(()=>render(),1000);
 export default App;
+
