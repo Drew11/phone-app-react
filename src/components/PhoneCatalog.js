@@ -3,7 +3,7 @@ import React from 'react';
 function PhoneCatalog( {phones, click , addPhone} ){
         return(
             <ul className="phones">
-                {phones.map((phone, index)=>{
+                {phones.map((phone)=>{
                     return <li
                         className="thumbnail"
                         data-phone-id={phone.id}

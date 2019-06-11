@@ -20,23 +20,34 @@ class PhoneApp extends React.Component{
          selectedPhones:{}
     };
 
-    this.functions = {};
-    this.arrayFunctions = [
-        this.clickedPhone,
-        this.backToCatalog,
-        this.addPhone,
-        this.removePhone,
-        this.filter,
-        this.sort
-    ].map((func)=>{
-        return func.bind(this)
-    });
-    this.arrayFunctions.forEach((func)=>{
-         const propName = func.name.slice(6, func.name.length);
-         return this.functions[propName] = func;
-     });
+      this.clickedPhone=this.clickedPhone.bind(this);
+      this.backToCatalog=this.backToCatalog.bind(this);
+      this.addPhone=this.addPhone.bind(this);
+      this.removePhone=this.removePhone.bind(this);
+      this.filter=this.filter.bind(this);
+      this.sort=this.sort.bind(this);
 
+    // this.arrayFunctions = [
+    //     this.clickedPhone,
+    //     this.backToCatalog,
+    //     this.addPhone,
+    //     this.removePhone,
+    //     this.filter,
+    //     this.sort
+    // ].map((func)=>{
+    //     return func.bind(this)
+    // });
+    //   this.functions = {};
+    //
+    //   this.arrayFunctions.forEach((func)=>{
+    //       const propName = func.name.slice(6, func.name.length);
+    //       this.functions[propName] = func;
+    //       return this.functions;
+    //   });
+    //
   }
+
+
     clickedPhone(id){
         this.setState({
             phoneViewerHide: false,
@@ -141,19 +152,16 @@ class PhoneApp extends React.Component{
 
   render(){
 
-
-
       let component = <PhoneCatalog
-          click={this.functions['clickedPhone']}
-          addPhone ={this.functions['addPhone']}
-          goToViewer = {this.functions['goToPagePhone']}
+          click={this.clickedPhone}
+          addPhone ={this.addPhone}
           phones = {this.state.phones}
       />;
 
       if(!this.state.phoneViewerHide) {
           component = <PhoneViewer
-          backToCatalog={this.functions['backToCatalog']}
-          addPhone ={this.functions['addPhone']}
+          backToCatalog={this.backToCatalog}
+          addPhone ={this.addPhone}
           selected ={this.state.pagePhone}
           phones = {this.state.phones}
            />
@@ -164,14 +172,14 @@ class PhoneApp extends React.Component{
               <div className="row">
                   <div className="col-md-2">
                       <section>
-                          <FilterPhones search={this.functions['filter']}/>
-                          <SortPhones sort={this.functions['sort']}/>
+                          <FilterPhones search={this.filter}/>
+                          <SortPhones sort={this.sort}/>
                       </section>
 
                       <section>
                        <ShoppingCart
                            selectedPhones={this.state.selectedPhones}
-                           removePhone ={this.functions['removePhone']}
+                           removePhone ={this.removePhone}
                        />
                       </section>
                   </div>
