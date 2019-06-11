@@ -33,11 +33,10 @@ class PhoneApp extends React.Component{
     });
     this.arrayFunctions.forEach((func)=>{
          const propName = func.name.slice(6, func.name.length);
-         this.functions[propName] = func;
+         return this.functions[propName] = func;
      });
 
   }
-
     clickedPhone(id){
         this.setState({
             phoneViewerHide: false,

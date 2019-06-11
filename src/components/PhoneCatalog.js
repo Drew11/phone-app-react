@@ -8,7 +8,7 @@ function PhoneCatalog( {phones, click , addPhone} ){
                         className="thumbnail"
                         data-phone-id={phone.id}
                         data-element="phone-element"
-                        key={"data-"+index}
+                        key={"data-"+phone.id}
                     >
                         <a
                             href={"#!/phones/motorola-xoom-with-wi-fi"}
