@@ -1,10 +1,12 @@
 import React from 'react';
 
-class PhoneViewer extends React.Component{
-    render(){
-        const {backToCatalog, addPhone, selected, phones} = this.props;
-        const phonePage = phones.filter((phone)=>phone['id']===selected);
+function  PhoneViewer ({backToCatalog, addPhone, selected, phones , phoneImages}){
 
+    function setNewImage(imgUrl){
+       document.querySelector('.phone').src = imgUrl;
+    }
+
+    const phonePage = phones.filter((phone)=>phone['id']===selected);
         return(
             <div>
                 <img
@@ -24,24 +26,26 @@ class PhoneViewer extends React.Component{
                         onClick={()=>addPhone(selected)}
                     >Add to basket
                     </button>
+                <h1>{phonePage[0]['name']}</h1>
 
-                <h1>{}</h1>
-
-                <p>{}</p>
+                <p>{phonePage[0]['snippet']}</p>
 
                 <ul className="phone-thumbs">
-                    {/*${this._phoneDetails.images.map((imageUrl) => {*/}
-                    {/*return `<li>*/}
-            {/*<img*/}
-            {/*data-element="small-image"*/}
-            {/*src="${imageUrl}"*/}
-             {/*></li>`*/}
-                {/*}).join('')}*/}
-
+                    { phoneImages.map((imageUrl, index) => {
+                    return <li
+                        key={index}
+                        onClick={()=>setNewImage(imageUrl)}
+                    >
+                            <img
+                            alt={"img"}
+                            src={imageUrl}
+                            />
+                           </li>
+                        })
+                    }
                 </ul>
             </div>
         )
     }
-}
 
 export default PhoneViewer;

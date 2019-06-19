@@ -1,6 +1,10 @@
 import React from 'react';
 
-function PhoneCatalog( {phones, click , addPhone} ){
+function PhoneCatalog( {phones,
+                           click ,
+                           addPhone,
+                           getPhoneImg
+} ){
         return(
             <ul className="phones">
                 {phones.map((phone)=>{
@@ -18,14 +22,19 @@ function PhoneCatalog( {phones, click , addPhone} ){
                         <img
                             alt={phone.name+"™ with Wi-Fi"}
                             src={'./'+phone.imageUrl}
-                            onClick={()=>click(phone.id)}/>
+                            onClick={()=>{
+                                click(phone.id);
+                                getPhoneImg(phone['id']);
+                            }}/>
                         </a>
 
                         <div className="phones__btn-buy-wrapper">
                             <a  href={'#!/phones/motorola-xoom-with-wi-fi'}
                                 className={"btn btn-success"}
                                 data-element={"add-to-cart"}
-                                onClick={()=>addPhone(phone.id)}
+                                onClick={()=>{
+                                    addPhone(phone.id);
+                                }}
                             >
                                 Add
                             </a>
@@ -34,7 +43,10 @@ function PhoneCatalog( {phones, click , addPhone} ){
                         <a
                             href={"#!/phones/motorola-xoom-with-wi-fi"}
                             data-element="details-link"
-                            onClick={()=>click(phone.id)}
+                            onClick={()=>{
+                                click(phone.id);
+                                getPhoneImg(phone['id']);
+                            }}
                         >{phone.name}
                         </a>
                         <p>{phone.snippet}</p>
