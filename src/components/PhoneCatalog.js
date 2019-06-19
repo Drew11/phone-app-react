@@ -24,7 +24,7 @@ function PhoneCatalog( {phones,
                             src={'./'+phone.imageUrl}
                             onClick={()=>{
                                 click(phone.id);
-                                getPhoneImg(phone['id'])
+                                getPhoneImg(phone['id']);
                             }}/>
                         </a>
 
@@ -32,7 +32,9 @@ function PhoneCatalog( {phones,
                             <a  href={'#!/phones/motorola-xoom-with-wi-fi'}
                                 className={"btn btn-success"}
                                 data-element={"add-to-cart"}
-                                onClick={()=>addPhone(phone.id)}
+                                onClick={()=>{
+                                    addPhone(phone.id);
+                                }}
                             >
                                 Add
                             </a>
@@ -41,7 +43,10 @@ function PhoneCatalog( {phones,
                         <a
                             href={"#!/phones/motorola-xoom-with-wi-fi"}
                             data-element="details-link"
-                            onClick={()=>click(phone.id)}
+                            onClick={()=>{
+                                click(phone.id);
+                                getPhoneImg(phone['id']);
+                            }}
                         >{phone.name}
                         </a>
                         <p>{phone.snippet}</p>
