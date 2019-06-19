@@ -46,8 +46,7 @@ class PhoneApp extends React.Component {
         //   });
         //
     }
-
-
+ .
     clickedPhone(id) {
         this.setState({
             phoneViewerHide: false,
@@ -92,22 +91,6 @@ class PhoneApp extends React.Component {
         this.setState({selectedPhones: countMinus});
     }
 
-    filter(event) {
-        const phones = [...this.state.phones],
-            filteredPhones = phones.filter((phone) => {
-                return phone.id.toLowerCase().includes(event.target.value.toLowerCase())
-            });
-
-        if (event.target.value === '') {
-            this.getPhones();
-
-        } else {
-            this.setState({
-                phones: filteredPhones
-            })
-        }
-    }
-
     sort(event) {
         const order = event.target.value,
             phones = [...this.state.phones];
@@ -140,12 +123,31 @@ class PhoneApp extends React.Component {
         this.setState({phones: sortedPhonesByOrder})
     }
 
-    async getPhones() {
+    getPhones = async (event) => {
+        let searchPhone,
+            phones;
+        if(event) {
+            searchPhone = event.target.value
+        }
+
         const response = await fetch(this.url + '.json');
         const json = await response.json();
 
-        this.setState({phones: json});
-    }
+        if(searchPhone){
+            const filtered = json.filter((phone)=>{
+                    return phone.name.toLowerCase().includes(searchPhone.toLowerCase())
+                }
+            );
+            if(filtered.length>0){
+                phones = filtered
+            }else phones = [];
+
+        }else {
+            phones = json;
+        }
+
+        this.setState({phones: phones});
+    };
 
     getPhoneImages = async (phoneId) => {
         const response = await fetch(this.url + '/' + phoneId + '.json');
@@ -182,7 +184,7 @@ class PhoneApp extends React.Component {
                 <div className="row">
                     <div className="col-md-2">
                         <section>
-                            <FilterPhones search={this.filter}/>
+                            <FilterPhones search={this.getPhones}/>
                             <SortPhones sort={this.sort}/>
                         </section>
 
