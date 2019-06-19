@@ -46,7 +46,6 @@ class PhoneApp extends React.Component {
         //   });
         //
     }
- .
     clickedPhone(id) {
         this.setState({
             phoneViewerHide: false,
