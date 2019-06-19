@@ -131,14 +131,11 @@ class PhoneApp extends React.Component {
         const json = await response.json();
 
         if(searchPhone){
-            const filtered = json.filter((phone)=>{
-                    return phone.name.toLowerCase().includes(searchPhone.toLowerCase())
+            phones = json.filter((phone)=>{
+                    return phone.name.toLowerCase()
+                            .includes(searchPhone.toLowerCase())
                 }
             );
-            if(filtered.length>0){
-                phones = filtered
-            }else phones = [];
-
         }else {
             phones = json;
         }
