@@ -24,7 +24,6 @@ class PhoneApp extends React.Component {
         this.backToCatalog = this.backToCatalog.bind(this);
         this.addPhone = this.addPhone.bind(this);
         this.removePhone = this.removePhone.bind(this);
-        this.filter = this.filter.bind(this);
         this.sort = this.sort.bind(this);
 
         // this.arrayFunctions = [
@@ -32,7 +31,6 @@ class PhoneApp extends React.Component {
         //     this.backToCatalog,
         //     this.addPhone,
         //     this.removePhone,
-        //     this.filter,
         //     this.sort
         // ].map((func)=>{
         //     return func.bind(this)
