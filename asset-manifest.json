@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/phone-app-react/static/css/main.cdf7f302.chunk.css",
-    "main.js": "/phone-app-react/static/js/main.09e50ceb.chunk.js",
-    "main.js.map": "/phone-app-react/static/js/main.09e50ceb.chunk.js.map",
+    "main.js": "/phone-app-react/static/js/main.af981bc4.chunk.js",
+    "main.js.map": "/phone-app-react/static/js/main.af981bc4.chunk.js.map",
     "runtime~main.js": "/phone-app-react/static/js/runtime~main.8740e41a.js",
     "runtime~main.js.map": "/phone-app-react/static/js/runtime~main.8740e41a.js.map",
     "static/js/2.f5f0c7fc.chunk.js": "/phone-app-react/static/js/2.f5f0c7fc.chunk.js",
     "static/js/2.f5f0c7fc.chunk.js.map": "/phone-app-react/static/js/2.f5f0c7fc.chunk.js.map",
     "index.html": "/phone-app-react/index.html",
-    "precache-manifest.05ca59d1799c86f48bcca765d98644a5.js": "/phone-app-react/precache-manifest.05ca59d1799c86f48bcca765d98644a5.js",
+    "precache-manifest.634da31d3a8c2526e03c9f996187c529.js": "/phone-app-react/precache-manifest.634da31d3a8c2526e03c9f996187c529.js",
     "service-worker.js": "/phone-app-react/service-worker.js",
     "static/css/main.cdf7f302.chunk.css.map": "/phone-app-react/static/css/main.cdf7f302.chunk.css.map"
   }
